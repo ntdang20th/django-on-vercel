@@ -92,7 +92,7 @@ DATABASES = {
     }
 }
 
-DATABASE_URL = "postgresql://postgres:lIf2pFdeje3t7um8C4f0@containers-us-west-41.railway.app:5565/railway"
+DATABASE_URL = "mysql://root:lGd26cBDWsZB5szRpXfx@containers-us-west-143.railway.app:6728/railway"
 DATABASES = {
     'default': dj_database_url.config(default=DATABASE_URL)
 }
