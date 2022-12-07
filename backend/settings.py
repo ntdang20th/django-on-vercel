@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 
-DATABASE_URL = "mysql://root:lGd26cBDWsZB5szRpXfx@containers-us-west-143.railway.app:6728/railway"
+DATABASE_URL = "postgresql://postgres:JhfS7HOq71tXmzJWYzyP@containers-us-west-141.railway.app:7683/railway"
 DATABASES = {
     'default': dj_database_url.config(default=DATABASE_URL)
 }
