@@ -10,4 +10,7 @@ echo "Collect static..."
 python3 manage.py collectstatic --noinput --clear
 
 echo "Create superuser..."
-python3 manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', '123')"
+try:
+  python3 manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', '123')"
+except:
+  print("Create failure!")
