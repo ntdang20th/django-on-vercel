@@ -15,8 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('demo/', include("demo.urls")),
+    path('api/', include('api.urls')),
+    path('patient/', include('patient.urls')),
+    path('address/', include('address.urls')),
+    path('device/', include('device.urls')),
+    path('doctor/', include('doctor.urls')),
+    path('auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('get-token/', TokenObtainPairView.as_view(), name='get-token'),
+    path('refresh-token/', TokenRefreshView.as_view(), name='refresh-token'),
+    path('verify-token/', TokenVerifyView.as_view(), name='verify-token'),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
+
