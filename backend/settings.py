@@ -34,6 +34,8 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,7 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'demo',
-    'rest_framework'
+    'rest_framework',
+    'address',
+    'api',
+    'device',
+    'doctor',
+    'patient',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +145,5 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'dangnguyen2662@gmail.com'
 EMAIL_HOST_PASSWORD = 'kykkyfueandqjvzl'
+
+AUTH_USER_MODEL = 'auth.User'
