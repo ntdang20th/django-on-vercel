@@ -1,3 +1,4 @@
+from django.core.asgi import get_asgi_application
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -24,6 +25,7 @@ def ResponesData(request):
     connection.close()
     return Response(request.data)
 def index(request):
+    application = get_asgi_application()
     return render(request, 'index.html', context={
-        "title": "Hello world!",
+        "title": application,
     })
