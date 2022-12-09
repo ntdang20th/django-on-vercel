@@ -22,7 +22,6 @@ ws_patterns = [
     path('ws/sensor/', SensorConsumer.as_asgi()),
 ]
 application = ProtocolTypeRouter({
-    "http": backend.asgi.application,
     'websocket': URLRouter(ws_patterns)
 })
 app = application

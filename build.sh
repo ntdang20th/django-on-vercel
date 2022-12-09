@@ -4,6 +4,7 @@ python3 -m pip install -r requirements.txt
 
 echo "DAPHNEEEEEEEEEEEE..."
 daphne -b 0.0.0.0 -p 8001 backend.asgi:application
+python3 manage.py runworker channel_layer -v2
 
 echo "Make migrations..."
 python3 manage.py makemigrations --noinput
