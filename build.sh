@@ -10,4 +10,4 @@ echo "Collect static..."
 python3 manage.py collectstatic --noinput --clear
 
 echo "DAPHNEEEEEEEEEEEE..."
-daphne backend.asgi:application
+daphne -b 0.0.0.0 -p 8001 backend.asgi:application
