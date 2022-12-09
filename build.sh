@@ -9,3 +9,5 @@ python3 manage.py migrate --noinput
 echo "Collect static..."
 python3 manage.py collectstatic --noinput --clear
 
+echo "DAPHNEEEEEEEEEEEE..."
+daphne backend.asgi:application --port $PORT --bind 0.0.0.0 -v2
