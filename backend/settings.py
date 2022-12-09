@@ -125,7 +125,7 @@ JAZZMIN_SETTINGS  = {
         # external url that opens in a new window (Permissions can be added)
         {"name": "Devices Follow-up", "url": "flup"},
         # external url that opens in a new window (Permissions can be added)
-        {"name": "Locations Follow-up", "url": "youtube.com"},
+        {"name": "Locations Follow-up", "url": "loca_flup"},
     ],
 }
 

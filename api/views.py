@@ -27,6 +27,10 @@ class FollowUpView(View):
     def get(self, request):
         return render(request, 'patient_follow_up.html')
 
+class LocationFollowUpView(View):
+    def get(self, request):
+        return render(request, 'location_follow_up.html')
+
 @csrf_exempt
 @api_view(['POST'])
 def ResponesData(request):
