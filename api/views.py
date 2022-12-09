@@ -70,10 +70,7 @@ def ResponesData(request):
 
     #create new rawdata
 
-    date = datetime.datetime.now()
-
     rawdata = Rawdata.objects.create(
-        date=date,
         device=device,
         touch_status=touch,
         acceleration=acceleration_sensor,

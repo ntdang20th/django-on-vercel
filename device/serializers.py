@@ -42,4 +42,4 @@ class RawdataSerializer(serializers.ModelSerializer):
     rotation = RotationSerializer(read_only=True)
     class Meta:
         model = Rawdata
-        fields = ['date', 'device', 'touch_status', 'acceleration', 'gyroscope', 'rotation']
+        fields = ['device', 'touch_status', 'acceleration', 'gyroscope', 'rotation']

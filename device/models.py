@@ -42,7 +42,6 @@ class TouchStatus(models.Model):
         return self.status_name
 
 class Rawdata(models.Model):
-    date = models.DateTimeField(default=datetime.datetime.now())
     device = models.ForeignKey(Device, on_delete=models.CASCADE)
     touch_status = models.ForeignKey(TouchStatus, on_delete=models.CASCADE)
     acceleration = models.ForeignKey(Acceleration, on_delete=models.CASCADE)

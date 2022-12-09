@@ -24,4 +24,4 @@ class TouchStatusAdmin(admin.ModelAdmin):
 
 @admin.register(Rawdata)
 class RawdataAdmin(admin.ModelAdmin):
-    list_display = ['id', 'date', 'device', 'touch_status', 'acceleration', 'gyroscope', 'rotation']
+    list_display = ['id', 'device', 'touch_status', 'acceleration', 'gyroscope', 'rotation']
