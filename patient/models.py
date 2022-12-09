@@ -39,10 +39,11 @@ class HasPatientFamiliar(models.Model):
 
 
 class Device(models.Model):
-    crutch_type = ((0, 'crutch1'), (1, 'crutch2'))
+    crutch_type = (('https://drive.google.com/uc?id=1Sinfe9CfTtfbeiqH0aiP1oV0JvS62VzM', 'Crutch 1'),
+                   ('https://drive.google.com/uc?id=1yVENaWugS-eATe-daysJ2e_TRlbb2rF_', 'Crutch 2'))
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE, null=True)
     uuid = models.CharField(max_length=128, default='')
     description = models.TextField(max_length=255, default='')
-    crutch = models.IntegerField(choices=crutch_type, default=0)
+    crutch = models.CharField(choices=crutch_type, max_length=255, default=0)
     is_active = models.BooleanField(default=True)
 

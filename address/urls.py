@@ -6,10 +6,10 @@ from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 
 #register views with router
-router.register(r'ward/', WardModelViewSet)
-router.register(r'district/', DistrictModelViewSet)
-router.register(r'province/', ProvinceModelViewSet)
-router.register(r'share-address/', ShareAddressModelViewSet)
+router.register(r'ward', WardModelViewSet)
+router.register(r'district', DistrictModelViewSet)
+router.register(r'province', ProvinceModelViewSet)
+router.register(r'share-address', ShareAddressModelViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

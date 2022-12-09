@@ -25,7 +25,7 @@ from backend.settings import STATIC_ROOT
 
 class FollowUpView(View):
     def get(self, request):
-        return render(request, 'patient_follow-up.html')
+        return render(request, 'patient_follow_up.html')
 
 @csrf_exempt
 @api_view(['POST'])
@@ -58,9 +58,9 @@ def ResponesData(request):
         unit=Unit.objects.get(pk=2)
     )
     rotation_sensor = Rotation.objects.create(
-        rotationX=rotation['rotationX'],
-        rotationY=rotation['rotationY'],
-        rotationZ=rotation['rotationZ'],
+        rotationX=rotation['RotationX'],
+        rotationY=rotation['RotationY'],
+        rotationZ=rotation['RotationZ'],
         unit=Unit.objects.get(pk=3)
     )
 
