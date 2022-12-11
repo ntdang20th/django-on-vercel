@@ -14,4 +14,4 @@ python3 manage.py collectstatic --noinput --clear
 
 echo "DAPHNEEEEEEEEEEEE..."
 #command: daphne -b 0.0.0.0 -p 8001 backend.asgi:application
-CommandLineInterface().run(('backend.asgi:application', '--bind', '0.0.0.0', '--port', '8001'))
+CommandLineInterface().run(['backend.asgi:application', '--bind', '0.0.0.0', '--port', '8001'])
