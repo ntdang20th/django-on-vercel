@@ -13,4 +13,4 @@ echo "Collect static..."
 python3 manage.py collectstatic --noinput --clear
 
 echo "UVICORNNNNNNNNNNNNNNNNNN..."
-python -m uvicorn backend.asgi:application
+python3 uvicorn backend.asgi:application
