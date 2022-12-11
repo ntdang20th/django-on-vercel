@@ -11,5 +11,6 @@ python3 manage.py collectstatic --noinput --clear
 
 echo "DAPHNEEEEEEEEEEEE..."
 #command: daphne -b 0.0.0.0 -p 8001 backend.asgi:application
-from daphne.cli import CommandLineInterface
-CommandLineInterface().run(('backend.asgi:application', '--bind', '0.0.0.0', '--port', '8001'))
+#from daphne.cli import CommandLineInterface
+#CommandLineInterface().run(('backend.asgi:application', '--bind', '0.0.0.0', '--port', '8001'))
+subprocess.run(["daphne", "-b 0.0.0.0 -p 8001 backend.asgi:application"])
