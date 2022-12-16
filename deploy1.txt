@@ -1,0 +1,80 @@
+----------------------------------Ubuntu----------------------------------------
+- virtualenv --python=python3 <dirs>
+- cd <dirs> 
+- source bin/activate
+- pip3 install django
+- django-admin startproject <project_name>
+----------------------------------Deployment------------------------------------
+#install dependencies
+pip install uvicorn
+pip install ginucorn
+sudo apt-get install nginx
+
+#running through Gunicorn
+gunicorn myproject.asgi:application -w 4 -k uvicorn.workers.UvicornWorker
+
+sudo nano /etc/systemd/system/gunicorn.service
+
+[Unit]
+Description=gunicorn daemon
+Requires=gunicorn.socket
+After=netowrk.target
+
+[Service]
+User=thanhdang
+Group=thanhdang
+WorkingDirectory=/home/thanhdang/django/demo_websocket/myenv
+ExecStart=/home/thanhdang/django/demo_websocket/myenv/bin/gunicorn core.asgi:application -w 2 -k uvicorn.workers.UvicornWorker --bind unix:/run/gunicorn.sock
+
+sudo nano /etc/systemd/system/gonucorn.socket
+[Unit]
+Description=gunicorn socket
+
+[Socket]
+ListenStream=/run/gunicorn.sock
+
+[Install]
+WantedBy=sockets.target
+
+
+sudo systemctl start gunicorn.socket
+sudo systemctl enable gunicorn.socket
+
+#Check Gunicorn status
+sudo systemctl status gunicorn
+
+#Restart command
+sudo systemctl daemon-reload
+sudo systemctl restart gunicorn
+
+#Overridding NGINX default
+sudo nano /etc/nginx/sites-available/default
+
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	server_name _;
+	client_max_body_size 20M;
+	charset	utf-8;
+
+	location /ws {
+        proxy_pass http://websockets;
+        
+    }
+
+	location / {
+		proxy_pass http://unix:/run/gunicorn.sock;
+		proxy_http_version 1.1;
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection "upgrade";
+
+		proxy_redirect	off;
+		proxy_set_header	Host $host;
+		proxy_set_header	X-Real-IP $remote_addr;
+		proxy_set_header	X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header	X-Forwarded-Host $server_name;
+	}
+}
+
+
+
